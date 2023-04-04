@@ -24,7 +24,7 @@ const morseCodeTests = {
     string4: `${morseCodeData.H} ${morseCodeData.A} ${morseCodeData.V} ${morseCodeData.E}   ${morseCodeData.A}   ${morseCodeData.G} ${morseCodeData.O} ${morseCodeData.O} ${morseCodeData.D}   ${morseCodeData.D} ${morseCodeData.A} ${morseCodeData.Y}`,
 };
 
-describe("Morse code Translator", () => {
+describe("Morse code to English ranslator", () => {
     it("Should return a translated string", () => {
         expect(morseCodeTranslator(morseCodeTests.hello)).toBe("hello");
         expect(morseCodeTranslator(morseCodeTests.abcde)).toBe("abcde");
@@ -72,5 +72,45 @@ describe("Morse code Translator", () => {
         expect(() => {
             morseCodeTranslator(false);
         }).toThrow(stringOnlyError);
+    });
+});
+describe("English to Morse Code translator", () => {
+    it("Should return a string", () => {
+        expect(morseCodeTranslator("hello")).toBe(morseCodeTests.hello);
+        expect(morseCodeTranslator("abcde")).toBe(morseCodeTests.abcde);
+        expect(morseCodeTranslator("1234")).toBe(morseCodeTests["1234"]);
+        expect(morseCodeTranslator("nology")).toBe(morseCodeTests.nology);
+    });
+    it("Should be able to handle random capitalised words", () => {
+        expect(morseCodeTranslator("hElLo")).toBe(morseCodeTests.hello);
+        expect(morseCodeTranslator("AbcDe")).toBe(morseCodeTests.abcde);
+        expect(morseCodeTranslator("NoLOgY")).toBe(morseCodeTests.nology);
+    });
+    it("Should handle a string with two or more words", () => {
+        expect(morseCodeTranslator("No thank you")).toBe(
+            morseCodeTests.string1
+        );
+        expect(morseCodeTranslator("You are welcome")).toBe(
+            morseCodeTests.string2
+        );
+        expect(morseCodeTranslator("See you later")).toBe(
+            morseCodeTests.string3
+        );
+        expect(morseCodeTranslator("Have a good day")).toBe(
+            morseCodeTests.string4
+        );
+    });
+});
+describe("Mixutre of English and Morse Code", () => {
+    it("Should return a string", () => {
+        expect(morseCodeTranslator(`hello ${morseCodeTests.nology}`)).toBe(
+            `${morseCodeTests.hello} nology`
+        );
+        expect(
+            morseCodeTranslator(`No thank you ${morseCodeTests.string4}`)
+        ).toBe(`${morseCodeTests.string1} have a good day`);
+        expect(morseCodeTranslator(`${morseCodeTests.string3} abcde`)).toBe(
+            `see you later ${morseCodeTests.abcde}`
+        );
     });
 });
