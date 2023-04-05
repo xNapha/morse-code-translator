@@ -1,1 +1,3 @@
-import { morseCodeTranslator } from "./scripts/translate";
+import createHTML from "./scripts/domManipulation.js";
+
+createHTML();

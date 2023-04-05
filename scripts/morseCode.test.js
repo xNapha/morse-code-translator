@@ -103,14 +103,14 @@ describe("English to Morse Code translator", () => {
 });
 describe("Mixutre of English and Morse Code", () => {
     it("Should return a string", () => {
-        expect(morseCodeTranslator(`hello ${morseCodeTests.nology}`)).toBe(
-            `${morseCodeTests.hello} nology`
+        expect(morseCodeTranslator(`hello   ${morseCodeTests.nology}`)).toBe(
+            `${morseCodeTests.hello}   nology`
         );
         expect(
-            morseCodeTranslator(`No thank you ${morseCodeTests.string4}`)
-        ).toBe(`${morseCodeTests.string1} have a good day`);
-        expect(morseCodeTranslator(`${morseCodeTests.string3} abcde`)).toBe(
-            `see you later ${morseCodeTests.abcde}`
+            morseCodeTranslator(`No thank you   ${morseCodeTests.string4}`)
+        ).toBe(`${morseCodeTests.string1}   have a good day`);
+        expect(morseCodeTranslator(`${morseCodeTests.string3}   abcde`)).toBe(
+            `see you later   ${morseCodeTests.abcde}`
         );
     });
 });
