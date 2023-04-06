@@ -17,7 +17,7 @@
 
 ## Languages Used
 
-This project will use HTMl, CSS/SCSS, and JavaScript, purely focusing on DOM Manipulation so no hard coded HTML elements other than the bare essentials.
+This project will use HTMl, CSS/SCSS, and JavaScript.
 
 ## How to Use
 

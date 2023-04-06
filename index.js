@@ -1,3 +1,3 @@
-import createHTML from "./scripts/domManipulation.js";
+import { createHTML } from "./scripts/domManipulation.js";
 
 createHTML();

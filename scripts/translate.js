@@ -1,11 +1,13 @@
+import { showErrorMessage } from "./domManipulation.js";
+
 export const incorrectInputError = new Error(
-    "You have entered an incorrectly typed code, please try again."
+    "You have entered an incorrectly typed morse letter, please check and try again."
 );
 export const undefinedInputError = new Error(
-    "You have entered an undefined input, please try again."
+    "You have entered an undefined input, please check and try again."
 );
 export const stringOnlyError = new Error(
-    "You must only enter a valid string, please try agian."
+    "You must only enter a valid string, please check and try agian."
 );
 
 const incorrectSpacingError = new Error(
@@ -22,14 +24,12 @@ import morseCodeData from "./morseCodeData.js";
 export const morseCodeTranslator = (string) => {
     // throw error if input is anything but a string
     if (typeof string !== "string") {
+        showErrorMessage(
+            "You must only enter a valid string, please check and try agian."
+        );
         throw stringOnlyError;
     }
-
-    return identifyString(string);
-};
-
-// check if alphanumeric input is string, morse or a mixture of both
-const identifyString = (string) => {
+    // check if alphanumeric input is string, morse or a mixture of both
     // check if matched string length is equal to original string,
     // if lengths match the proceed with respective translation
     // else translate it as a mixture
@@ -95,6 +95,9 @@ const isError = (acc, curr) => {
         acc += morseCodeData[curr];
         return acc;
     }
+    showErrorMessage(
+        "You have entered an incorrectly typed morse letter, please check and try again."
+    );
     throw incorrectInputError;
 };
 
@@ -102,11 +105,14 @@ const translateMixed = (string) => {
     // take string and replace
     // this all relies on the user following the correct grammar and punctuation laid out
     if (!/[ ]{3}/.test(string)) {
+        showErrorMessage(
+            "You must correctly space your morse code from your english text, please add three space characters between them and try again."
+        );
         throw incorrectSpacingError;
     }
 
     const translated = string.split("   ").reduce((acc, curr) => {
-        acc.push(identifyString(curr));
+        acc.push(morseCodeTranslator(curr));
         return acc;
     }, []);
 

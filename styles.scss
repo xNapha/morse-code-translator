@@ -1,0 +1,86 @@
+@use "variables.scss";
+@import url("https://fonts.googleapis.com/css2?family=Chivo+Mono&display=swap");
+* {
+    border-radius: 20px;
+    box-sizing: border-box;
+    font-family: "Labrada", "Chivo Mono", Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-color: variables.$primary-background-color;
+}
+main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    > * {
+        margin: 10px;
+        width: 30rem;
+    }
+    h1,
+    h3,
+    h4 {
+        text-align: center;
+    }
+    h1 {
+        font-size: 3rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    h4 {
+        text-decoration: underline;
+    }
+
+    > ul {
+        border: 2px solid variables.$primary-font-color;
+        padding: 0.5rem 2rem;
+        ul {
+            li {
+                color: variables.$secondary-font-color;
+                margin-left: 1rem;
+            }
+        }
+    }
+    p {
+        border: 2px solid variables.$tertiary-font-color;
+        color: variables.$tertiary-font-color;
+        padding: 1.5rem;
+    }
+    form {
+        align-items: center;
+        display: inherit;
+        flex-direction: column;
+        * {
+            margin-bottom: 10px;
+        }
+    }
+    textarea {
+        background-color: variables.$secondary-background-color;
+        border: 2px solid variables.$primary-font-color;
+        color: variables.$primary-font-color;
+        height: 7rem;
+        outline: none;
+        padding: 0.5rem;
+        resize: none;
+        width: 25rem;
+    }
+    button {
+        background-color: variables.$secondary-background-color;
+        border: 2px solid variables.$primary-font-color;
+        border-radius: 20px;
+        padding: 0.25rem 1rem;
+    }
+    button:hover {
+        background-color: #bdaf88;
+        color: variables.$quaternary-font-color;
+        cursor: pointer;
+        transition: ease-in 0.2s;
+    }
+}
+.error {
+    border: 2px solid variables.$tertiary-font-color;
+}
