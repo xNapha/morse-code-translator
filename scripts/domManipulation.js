@@ -7,10 +7,13 @@ export const createHTML = () => {
 
 const showTranslation = (event) => {
     event.preventDefault();
+
     const errorMsg = document.querySelector(".error__message");
     errorMsg.innerHTML = "";
+
     const userInput = document.querySelector(".user-input");
     userInput.classList.remove("error");
+
     const result = document.querySelector(".result");
     result.value = morseCodeTranslator(event.target.elements[0].value);
 };
