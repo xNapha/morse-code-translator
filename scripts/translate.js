@@ -13,6 +13,7 @@ export const stringOnlyError = new Error(
 const incorrectSpacingError = new Error(
     "You must correctly space your morse code from your english text, please add three space characters between them"
 );
+
 import morseCodeData from "./morseCodeData.js";
 
 export const morseCodeTranslator = (string) => {
@@ -39,10 +40,10 @@ const morseCheck = (string) => string.match(/(\W(\s{1}||\s{3})?)*/gi).join("");
 
 const englishToMorse = (string) => {
     const stringArr = string.toUpperCase().split("");
-    return stringArr.reduce(isLetter, []).join(" ");
+    return stringArr.reduce(checkIfLetter, []).join(" ");
 };
 
-const isLetter = (acc, curr) => {
+const checkIfLetter = (acc, curr) => {
     if (morseCodeData[curr]) {
         acc.push(morseCodeData[curr]);
     } else {
@@ -56,17 +57,17 @@ const morseToEnglish = (string) => {
         return string
             .split("   ")
             .reduce((acc, curr) => {
-                acc.push(curr.split(" ").reduce(isError, ""));
+                acc.push(curr.split(" ").reduce(checkIfError, ""));
                 return acc;
             }, [])
             .join(" ")
             .toLowerCase();
     } else {
-        return string.split(" ").reduce(isError, "").toLowerCase();
+        return string.split(" ").reduce(checkIfError, "").toLowerCase();
     }
 };
 
-const isError = (acc, curr) => {
+const checkIfError = (acc, curr) => {
     if (morseCodeData[curr]) {
         acc += morseCodeData[curr];
         return acc;
