@@ -66,6 +66,7 @@ I first started off with a TDD approach as I just recently learnt the fundamenta
 ## Future Goals
 
 - ~~To allow for periods and dashes to be used and translated~~
+- To implement the mimicMachine.js file that i created into the website itself
 
 ---
 
