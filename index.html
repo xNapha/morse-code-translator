@@ -1,70 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script type="module" src="index.js"></script>
-        <link href="styles.css" rel="stylesheet" />
-        <title>Morse Code Translator</title>
-    </head>
-    <body>
-        <main>
-            <h1>Morse Code Translator</h1>
-            <h3>Enter any input to have it translated</h3>
-            <h4>Guidelines for using the translator</h4>
-            <ul>
-                <li>When entering morse code, please:</li>
-                <ul>
-                    <li>space your letters apart with a single space</li>
-                    <span><li>e.g. ".... . .-.. .-.. ---"</li></span>
-                    <li>space your words apart with three spaces</li>
-                    <span
-                        ><li>
-                            e.g. "... - --- .--. &nbsp; .-.. . .- ...- ."
-                        </li></span
-                    >
-                </ul>
-                <li>
-                    If an english word comes before or after the start of a
-                    morse code word seperate them with three spaces
-                </li>
-                <ul>
-                    <span
-                        ><li>e.g. "over here &nbsp; .-.. . .- ...- ."</li></span
-                    >
-                    <span
-                        ><li>
-                            e.g. ".-.. . .- ...- . &nbsp; no over here"
-                        </li></span
-                    >
-                </ul>
-                <li>
-                    Translator does not handle the following characters when
-                    used in conjunction with english:
-                </li>
-                <ul>
-                    <span><li>"Super-hero" will throw an error</li></span>
-                    <span><li>"Have a good day." will throw an error</li></span>
-                </ul>
-            </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="index.js"></script>
+    <link href="styles.css" rel="stylesheet" />
+    <title>Morse Code Translator</title>
+  </head>
+  <body>
+    <main>
+      <h1>Morse Code Translator</h1>
+      <h3>Enter any input to have it translated</h3>
+      <h4>Guidelines for using the translator</h4>
+      <ul>
+        <li>When entering morse code, please:</li>
+        <ul>
+          <li>space your letters apart with a single space</li>
+          <span><li>e.g. ".... . .-.. .-.. ---"</li></span>
+          <li>space your words apart with three spaces</li>
+          <span><li>e.g. "... - --- .--. &nbsp; .-.. . .- ...- ."</li></span>
+        </ul>
+        <li>
+          If an english word comes before or after the start of a morse code
+          word seperate them with three spaces
+        </li>
+        <ul>
+          <span><li>e.g. "over here &nbsp; .-.. . .- ...- ."</li></span>
+          <span><li>e.g. ".-.. . .- ...- . &nbsp; no over here"</li></span>
+        </ul>
+      </ul>
 
-            <form>
-                <label for="user-input">Enter your desired text:</label>
-                <textarea
-                    class="user-input"
-                    id="input"
-                    placeholder="Enter your desired text..."
-                ></textarea>
-                <button>Translate</button>
-                <label for="">Your result will be displayed here:</label>
-                <textarea
-                    class="result"
-                    disabled
-                    placeholder="Your result will be produced here..."
-                ></textarea>
-            </form>
-            <div class="error__message"></div>
-        </main>
-    </body>
+      <form>
+        <label for="user-input">Enter your desired text:</label>
+        <textarea
+          class="user-input"
+          id="input"
+          placeholder="Enter your desired text..."
+        ></textarea>
+        <button>Translate</button>
+        <label for="">Your result will be displayed here:</label>
+        <textarea
+          class="result"
+          disabled
+          placeholder="Your result will be produced here..."
+        ></textarea>
+      </form>
+      <div class="error__message"></div>
+    </main>
+  </body>
 </html>
